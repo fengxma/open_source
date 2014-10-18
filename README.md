@@ -1,6 +1,6 @@
 open_source
 ===========
 
-For open source project
+For open source projects.
 
 For programs such as Neighborhood School Program.
