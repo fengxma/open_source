@@ -1,1 +1,4 @@
-__author__ = 'fengxma'
+def similarity(moleculeID, similarities):
+
+
+    return
