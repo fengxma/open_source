@@ -20,7 +20,7 @@ for row in odd_row:
 
 col_num = list(range(len(data.columns)-1))
 
-def pval (x, standard_error, df=800, tail=2):
+def pval(x, standard_error, df=800, tail=2):
     pval = t.sf(np.abs((x-0)/standard_error), df) * tail
     return pval
 
@@ -30,6 +30,16 @@ p_store = odd_row
 for col in col_num:
 #    for col in data.iloc[1, 1:]:
      for row in odd_row:
+
+         p_store = pval(data.iloc[row-1, col+1], data.iloc[row, col+1])
+
+         if p_store < 0.01:
+            data.iloc[row-1, col+1] = str(data.iloc[row-1, col+1]) + '***'
+         elif p_store < 0.05:
+            data.iloc[row-1, col+1] = str(data.iloc[row-1, col+1]) + '**'
+         elif p_store < 0.1:
+            data.iloc[row-1, col+1] = str(data.iloc[row-1, col+1]) + '*'
+
          data.iloc[row, col+1] = '(' + str(data.iloc[row, col+1]) + ')'
 
 # col = 1
@@ -44,5 +54,5 @@ for col in col_num:
 
 print(data)
 
-
+data.to_latex("/Users/fengxma/Projects/open_source/py2tex/test4.tex", index=False)
 
