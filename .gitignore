@@ -1,6 +1,9 @@
 .idea/
+__pycache__
 *.xlsx
+*.xls
 *.txt
 *log.py
 *.tex
 *.csv
+*.png
